@@ -106,6 +106,8 @@ source "drivers/watchdog/Kconfig.tco"
 
 source "drivers/watchdog/Kconfig.b9x"
 
+source "drivers/watchdog/Kconfig.tlx"
+
 source "drivers/watchdog/Kconfig.w91"
 
 endif # WATCHDOG
