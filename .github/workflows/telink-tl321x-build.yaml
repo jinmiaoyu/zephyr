@@ -109,6 +109,11 @@ jobs:
         cd ..
         west build -b tl3218x     -d build_ot_coprocessor_rcp_usb_tl321x      zephyr/samples/net/openthread/coprocessor     -- -DDTC_OVERLAY_FILE="usb.overlay boards/tl3218x-dongle.overlay" -DOVERLAY_CONFIG=overlay-rcp-usb-telink.conf
 
+    - name: Build TL321X bootloader/mcuboot/boot for compressed LZMA image
+      run: |
+        cd ..
+        west build -b tl3218x     -d build_mcuboot_tl3218x_lzma               bootloader/mcuboot/boot/zephyr                -- -DCONFIG_COMPILER_WARNINGS_AS_ERRORS=y -DCONFIG_COMPRESS_LZMA=y -DCONFIG_BOOT_UPGRADE_ONLY=y
+
     - name: Collect artifacts
       run: |
         mkdir telink_build_artifacts
